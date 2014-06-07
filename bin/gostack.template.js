@@ -9,5 +9,6 @@
 
 /*** Implementations of Async functions ***/
 //> timeouts.js
+//> DOM.js
 
 })(window);
