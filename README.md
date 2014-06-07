@@ -19,14 +19,14 @@ go({
   }
 });
 
-// Backwards compatible version:
+// More compatible version:
 go({
   Try: function() {
     setTimeout(function() {
       throw "Oh no! An asynchronous exception!";
     }, 500);
   },
-  Catch(e) {
+  Catch: function(e) {
     alert(e);
   }
 });
