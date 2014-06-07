@@ -46,6 +46,21 @@ go(function() {
 - Google Closure Compiler
 - JVM version 1.7 or later (for the Google Closure Compiler)
 
+###Making async functions work with GoStack:
+To make a function, say ``setTimeout()`` work with GoStack, you have to *prep* the function. Prepping a function is very simple:
+```javascript
+setTimeout = go.prep(setTimeout);
+```
+What ``go.prep()`` does is *decorate* arguments. When you call ``setTimeout()`` it will decorate the callback you handed using ``go.decorate()``. Another way of making ``setTimeout()`` work with GoStack is by writing this:
+```javascript
+var original = setTimeout;
+setTimeout = function(callback, interval) {
+  callback = go.decorate(callback);
+  return original(callback, interval);
+}
+```
+When, after a timeout, ``callback()`` is finally called exceptions that are thrown are catched by GoStack. GoStack will be able to know which catch function to call in order to handle the exception.
+
 ###To-do list:
 - [X] Add support for ``setTimeout`` and ``setInterval``
 - [ ] Add support for DOM events
