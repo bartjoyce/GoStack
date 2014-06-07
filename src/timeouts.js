@@ -5,7 +5,7 @@
  */
 (function() {
 
-  window['setTimeout'] = go.process(window['setTimeout'], 0);
-  window['setInterval'] = go.process(window['setInterval'], 0);
+  window['setTimeout'] = go.prep(window['setTimeout']);
+  window['setInterval'] = go.prep(window['setInterval']);
 
 })();
