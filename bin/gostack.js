@@ -89,24 +89,20 @@
   }
 
   /**
-   process()
-   Given a function returns a new function which operates
-   similarly but decorates the callback passed through to it.
-   The callbackIndex determines which argument should be
-   decorated; a negative index results in an argument from
-   the back.
+   prep()
+   Given a function returns a new function which, when called,
+   decorates all arguments which are functions.
    */
-  go.process = function process(fn, callbackIndex) {
-    if (typeof fn !== 'function' || typeof callbackIndex !== 'number')
-      throw new Exception('Invalid arguments passed to go.process()');
+  go.prep = function prep(fn) {
+    if (typeof fn !== 'function')
+      throw new Exception('Invalid arguments passed to go.prep()');
 
-    var getAbsoluteIndex = function getAbsoluteIndex(args) {
-      return (callbackIndex >= 0) ? callbackIndex : args.length + callbackIndex;
-    }
+    return function prepped() {
+      for (var i = 0; i < arguments.length; i++) {
+        if (typeof arguments[i] === 'function')
+          arguments[i] = go.decorate(arguments[i]);
+      }
 
-    return function processed() {
-      var i = getAbsoluteIndex(arguments);
-      arguments[i] = go.decorate(arguments[i]);
       return fn.apply(this, arguments);
     }
   }
@@ -136,8 +132,8 @@
  */
 (function() {
 
-  window['setTimeout'] = go.process(window['setTimeout'], 0);
-  window['setInterval'] = go.process(window['setInterval'], 0);
+  window['setTimeout'] = go.prep(window['setTimeout']);
+  window['setInterval'] = go.prep(window['setInterval']);
 
 })();
 
