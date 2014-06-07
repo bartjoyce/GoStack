@@ -3,6 +3,8 @@ GoStack
 
 GoStack is a JavaScript library that enables you to use asynchronous ``try-catch`` statements.
 
+Go ahead and grab a copy of [``gostack.min.js``](https://raw.githubusercontent.com/bartjoyce/GoStack/master/bin/gostack.min.js) and try it out!
+
 ###Usage:
 ```javascript
 // Using the new ECMAScript 6 block-level function declarations
@@ -38,6 +40,11 @@ go(function() {
   alert(e);
 });
 ```
+
+###Dependencies:
+- Node.js
+- Google Closure Compiler
+- JVM version 1.7 or later (for the Google Closure Compiler)
 
 ###To-do list:
 - Add support for DOM events
