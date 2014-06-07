@@ -63,5 +63,5 @@ When, after a timeout, ``callback()`` is finally called exceptions that are thro
 
 ###To-do list:
 - [X] Add support for ``setTimeout`` and ``setInterval``
-- [ ] Add support for DOM events
+- [X] Add support for DOM events
 - [ ] Add support for ``XMLHttpRequest``
