@@ -47,5 +47,6 @@ go(function() {
 - JVM version 1.7 or later (for the Google Closure Compiler)
 
 ###To-do list:
-- Add support for DOM events
-- Add support for ``XMLHttpRequest``
+- [X] Add support for ``setTimeout`` and ``setInterval``
+- [ ] Add support for DOM events
+- [ ] Add support for ``XMLHttpRequest``
