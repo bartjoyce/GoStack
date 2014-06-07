@@ -41,7 +41,7 @@ go(function() {
 });
 ```
 
-###Dependencies:
+###Dependencies (to compile source):
 - Node.js
 - Google Closure Compiler
 - JVM version 1.7 or later (for the Google Closure Compiler)
