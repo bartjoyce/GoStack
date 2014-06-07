@@ -9,12 +9,12 @@ Go ahead and grab a copy of [``gostack.min.js``](https://raw.githubusercontent.c
 ```javascript
 // Using the new ECMAScript 6 block-level function declarations
 go({
-  Try() {
+  function Try() {
     setTimeout(function() {
       throw "Oh no! An asynchronous exception!";
     }, 500);
   },
-  Catch(e) {
+  function Catch(e) {
     alert(e);
   }
 });
