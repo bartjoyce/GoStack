@@ -59,7 +59,7 @@ setTimeout = function(callback, interval) {
   return original(callback, interval);
 }
 ```
-When, after a timeout, ``callback()`` is finally called exceptions that are thrown are catched by GoStack. GoStack will be able to know which catch function to call in order to handle the exception.
+When, after a timeout, ``callback()`` is finally called exceptions that are thrown are caught by GoStack. GoStack will be able to know which catch function to call in order to handle the exception.
 
 ###To-do list:
 - [X] Add support for ``setTimeout`` and ``setInterval``
