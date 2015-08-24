@@ -9,17 +9,17 @@ Go ahead and grab a copy of [``gostack.min.js``](https://raw.githubusercontent.c
 ```javascript
 // Using the new ECMAScript 6 block-level function declarations
 go({
-  function Try() {
+  Try() {
     setTimeout(function() {
       throw "Oh no! An asynchronous exception!";
     }, 500);
   },
-  function Catch(e) {
+  Catch(e) {
     alert(e);
   }
 });
 
-// More compatible version:
+// Using the original block-level function declarations:
 go({
   Try: function() {
     setTimeout(function() {
@@ -31,7 +31,7 @@ go({
   }
 });
 
-// More compact, less intuitive version:
+// More compact, less intuitive:
 go(function() {
   setTimeout(function() {
     throw "Oh no! An asynchronous exception!";
